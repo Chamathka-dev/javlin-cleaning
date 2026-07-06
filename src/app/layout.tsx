@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { Suspense } from "react"; // 1. Import Suspense
 
 // Import our new layout components
 import Navbar from "@/components/Navbar";
@@ -25,7 +26,9 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth">
       <body className={`${inter.className} bg-slate-50 text-slate-900 antialiased`}>
 
+        <Suspense fallback={null}>
         <NavigationLoader />
+        </Suspense>
         
         {/* Global Navigation */}
         <Navbar />
