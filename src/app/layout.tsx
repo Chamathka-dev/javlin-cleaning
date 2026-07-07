@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { Suspense } from "react"; // 1. Import Suspense
+import { Analytics } from "@vercel/analytics/next";
 
 // Import our new layout components
 import Navbar from "@/components/Navbar";
@@ -43,6 +44,8 @@ export default function RootLayout({
 
         {/* Floating WhatsApp CTA */}
         <FloatingWhatsApp />
+
+        <Analytics />
         
       </body>
     </html>
