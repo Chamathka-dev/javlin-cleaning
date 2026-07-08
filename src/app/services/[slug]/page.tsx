@@ -3,11 +3,11 @@
 import { useParams } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import { CheckCircle2 } from "lucide-react";
+import { CheckCircle2, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
 import BookingForm from "@/components/BookingForm";
 
-// 1. Massive Data Dictionary for all 26 services
+// 1. Massive Data Dictionary for all 26 services (With updated high-res images)
 const serviceDatabase: Record<string, any> = {
   "general-cleaning": {
     title: "General Cleaning",
@@ -342,86 +342,116 @@ export default function SingleServicePage() {
   
   const data = serviceDatabase[slug] || serviceDatabase["fallback"];
 
+  const fadeIn = { hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5 } } };
+  const staggerContainer = { hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.1 } } };
+
   return (
-    <div className="flex flex-col w-full min-h-screen pt-20 bg-white">
+    <div className="flex flex-col w-full min-h-screen bg-slate-50">
       
-      {/* PERFECTLY MATCHED HERO HEADER */}
-      <section className="relative w-full h-[40vh] min-h-[350px] flex items-center justify-center bg-slate-900 overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=2070')] bg-cover bg-center opacity-40"></div>
-        <div className="absolute inset-0 bg-javlin-blue/80 mix-blend-multiply"></div>
+      {/* 1. CENTERED IMMERSIVE HERO */}
+      <section className="relative w-full h-[60vh] min-h-[500px] flex items-center justify-center text-center bg-slate-950 pt-20 overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <Image src={data.img} alt={data.title} fill className="object-cover opacity-50" priority />
+          <div className="absolute inset-0 bg-slate-950/60"></div>
+        </div>
         
-        <div className="relative z-10 text-center px-6">
+        <div className="container mx-auto px-6 relative z-10 flex flex-col items-center">
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="inline-flex items-center gap-2 bg-javlin-green/20 text-javlin-green-light border border-javlin-green/30 px-5 py-2 rounded-full text-xs font-bold mb-6 tracking-widest uppercase backdrop-blur-sm">
+            <Sparkles className="w-4 h-4" /> Service Overview
+          </motion.div>
           <motion.h1 
-            initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}
-            className="text-5xl md:text-7xl font-bold text-white mb-6 tracking-tight uppercase"
+            initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.1 }}
+            className="text-5xl md:text-7xl font-black text-white mb-6 tracking-tight leading-[1.1] capitalize"
           >
-            SERVICES <br />
-            <span className="text-javlin-green-light capitalize">{data.title}</span>
+            {data.title}
           </motion.h1>
           <motion.p 
-            initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-javlin-blue-light font-bold tracking-widest text-sm uppercase"
+            initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.2 }}
+            className="text-slate-300 font-bold tracking-widest text-sm uppercase"
           >
-            HOME <span className="mx-2 text-white/50">•</span> SERVICES <span className="mx-2 text-white/50">•</span> {data.title}
+            HOME <span className="mx-2 text-white/50">•</span> SERVICES <span className="mx-2 text-white/50">•</span> <span className="text-javlin-green-light">{data.title}</span>
           </motion.p>
         </div>
       </section>
 
-      {/* CONTENT & DESCRIPTION */}
-      <section className="py-20 bg-slate-50">
-        <div className="container mx-auto px-6 max-w-5xl">
-          
-          <div className="flex flex-col md:flex-row gap-12 items-start mb-16">
-            <div className="w-full md:w-1/2 relative h-[300px] md:h-[400px] rounded-3xl overflow-hidden shadow-xl border border-slate-200">
-              <Image src={data.img} alt={data.title} fill className="object-cover" priority />
-            </div>
+      {/* 2. ASYMMETRIC CONTENT BLOCK (The "Story" Layout) */}
+      <section className="py-24 bg-white relative overflow-hidden">
+        <div className="absolute -right-40 top-20 w-96 h-96 bg-javlin-blue/5 rounded-full blur-3xl -z-10"></div>
+        <div className="container mx-auto px-6 max-w-7xl">
+          <div className="flex flex-col lg:flex-row gap-16 items-center">
             
-            <div className="w-full md:w-1/2 flex flex-col justify-center h-full pt-4">
-              <h2 className="text-3xl font-bold text-javlin-blue mb-6">Service Overview</h2>
-              <p className="text-lg text-slate-600 leading-relaxed font-medium">
+            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn} className="lg:w-1/2 relative h-[450px] md:h-[550px] w-full order-2 lg:order-1">
+              <div className="absolute inset-0 rounded-[40px] overflow-hidden shadow-2xl z-10 border-8 border-white">
+                <Image src={data.img} alt={data.title} fill className="object-cover" priority />
+              </div>
+              <div className="absolute -bottom-8 -left-8 w-64 h-64 bg-javlin-green rounded-[40px] -z-0 hidden md:block"></div>
+            </motion.div>
+            
+            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn} className="lg:w-1/2 flex flex-col justify-center order-1 lg:order-2">
+              <h2 className="text-3xl md:text-5xl font-black text-slate-900 mb-6 leading-tight tracking-tight">
+                Premium <br/><span className="text-javlin-blue">{data.title}.</span>
+              </h2>
+              <div className="w-16 h-1.5 bg-javlin-green rounded-full mb-8"></div>
+              
+              <p className="text-slate-600 text-lg leading-relaxed mb-6 font-medium">
                 {data.text}
               </p>
-            </div>
-          </div>
+              
+              <div className="mt-6">
+                <a href="#booking-form" className="inline-flex items-center gap-2 bg-slate-900 hover:bg-black text-white px-8 py-4 rounded-xl font-bold transition-all shadow-lg hover:-translate-y-1">
+                  Book This Service
+                </a>
+              </div>
+            </motion.div>
 
-          {/* BENEFITS GRID */}
-          <div className="bg-white p-8 md:p-12 rounded-3xl shadow-sm border border-slate-100">
-            <h3 className="text-2xl font-bold text-javlin-blue mb-8 text-center md:text-left">{data.benefitsTitle}</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {data.benefits.map((benefit: string, idx: number) => (
-                <div key={idx} className="bg-slate-50 p-6 rounded-2xl border border-slate-100 flex gap-4 items-start hover:border-javlin-green transition-colors">
-                  <CheckCircle2 className="w-6 h-6 text-javlin-green shrink-0 mt-1" />
-                  <p className="text-slate-700 font-medium leading-relaxed">{benefit}</p>
-                </div>
-              ))}
-            </div>
           </div>
-          
         </div>
       </section>
 
-      {/* GREEN CTA BANNER */}
+      {/* 3. DARK BENTO-STYLE BENEFITS GRID */}
+      <section className="py-28 bg-slate-900 text-white relative">
+        <div className="container mx-auto px-6 max-w-6xl">
+          <div className="text-center mb-16">
+            <h3 className="text-3xl md:text-5xl font-black mb-4 tracking-tight">{data.benefitsTitle}</h3>
+            <p className="text-slate-400 text-lg max-w-2xl mx-auto">Discover the long-term value and operational excellence embedded in this service.</p>
+          </div>
+
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer} className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {data.benefits.map((benefit: string, idx: number) => (
+              <motion.div key={idx} variants={fadeIn} className="bg-slate-800/50 p-8 rounded-3xl border border-slate-700 flex gap-6 items-start hover:border-javlin-green/50 hover:bg-slate-800 transition-colors group">
+                <div className="w-12 h-12 bg-slate-900 rounded-xl flex items-center justify-center shrink-0 border border-slate-700 group-hover:border-javlin-green transition-colors">
+                  <CheckCircle2 className="w-6 h-6 text-javlin-green" />
+                </div>
+                <p className="text-slate-200 text-lg font-medium leading-relaxed pt-2">{benefit}</p>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* 4. GREEN CTA BANNER */}
       <section className="bg-javlin-green py-16 px-6 relative overflow-hidden">
         <div className="container mx-auto max-w-5xl relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
-          <h3 className="text-white text-3xl md:text-4xl font-bold leading-tight text-center md:text-left md:w-2/3">
-            Our cost effective and reliable cleaning services that we aim to provide to all clients
+          <h3 className="text-white text-3xl md:text-4xl font-black leading-tight text-center md:text-left md:w-2/3 tracking-tight">
+            Cost-effective, reliable cleaning services aimed at exceeding client expectations.
           </h3>
-          <Link href="/contact" className="bg-slate-900 hover:bg-black text-white px-10 py-4 rounded-full font-bold whitespace-nowrap transition-all shadow-lg hover:shadow-xl hover:-translate-y-1">
-            Want a free estimate?
+          <Link href="/contact" className="bg-slate-900 hover:bg-black text-white px-10 py-5 rounded-full font-bold whitespace-nowrap transition-all shadow-xl hover:-translate-y-1">
+            Get an Estimate
           </Link>
         </div>
       </section>
       
-      {/* BOOKING FORM AT BOTTOM */}
-      <section className="py-24 bg-white">
-        <div className="container mx-auto px-6 max-w-4xl">
+      {/* 5. BOOKING FORM AT BOTTOM */}
+      <section id="booking-form" className="py-28 bg-white relative">
+        <div className="absolute top-0 w-full h-1/2 bg-slate-100 z-0"></div>
+        <div className="container mx-auto px-6 max-w-4xl relative z-10">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Book This Service</h2>
-            <p className="text-slate-600">Fill out the form below and our expert team will get back to you immediately.</p>
+            <h2 className="text-3xl md:text-5xl font-black text-slate-900 mb-4 tracking-tight">Schedule Today</h2>
+            <p className="text-slate-600 text-lg">Provide your details below, and our dispatch desk will confirm your appointment for <span className="font-bold text-javlin-blue">{data.title}</span>.</p>
           </div>
-          <div className="bg-slate-50 p-8 md:p-12 rounded-3xl shadow-xl border border-slate-100">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn} className="bg-white p-8 md:p-12 rounded-[32px] shadow-2xl shadow-slate-900/10 border border-slate-100">
             <BookingForm />
-          </div>
+          </motion.div>
         </div>
       </section>
 
