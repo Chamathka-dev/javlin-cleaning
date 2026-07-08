@@ -20,34 +20,34 @@ export default function ContactPage() {
   return (
     <div className="flex flex-col w-full min-h-screen bg-slate-50">
       
-      {/* 1. STANDALONE CENTERED HERO SECTION (Updated for Description) */}
-      {/* h-screen to make it standalone 100vh, perfectly centered. pt-20 to space below navbar */}
-      <section className="relative w-full h-screen min-h-[750px] flex items-center justify-center text-center bg-slate-950 pt-20 overflow-hidden">
+      {/* 1. CENTERED IMMERSIVE HERO SECTION */}
+      <section className="relative w-full h-[60vh] min-h-[500px] flex items-center justify-center text-center bg-slate-950 pt-20 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image src="https://images.unsplash.com/photo-1596422846543-75c6fc197f07?q=80&w=2070" alt="Contact Javlin" fill className="object-cover opacity-50" priority />
           <div className="absolute inset-0 bg-slate-950/60"></div>
         </div>
         
-        {/* pb-24 md:pb-32 here pushes content UP from the white box below, creating breathing room */}
-        <div className="container mx-auto px-6 relative z-10 flex flex-col items-center text-center pb-24 md:pb-32">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="inline-flex items-center gap-2 bg-javlin-green/20 text-javlin-green-light border border-javlin-green/30 px-5 py-2 rounded-full text-xs font-bold mb-8 tracking-widest uppercase backdrop-blur-sm">
-            <Sparkles className="w-4 h-4" /> Reach Out
-          </motion.div>
-          
-          <motion.h1 
-            initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-5xl md:text-7xl font-black text-white mb-6 tracking-tight leading-[1.1]"
-          >
-            Get In <br />
-            <span className="text-javlin-green">Touch With Us.</span>
-          </motion.h1>
-          
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-lg md:text-xl text-slate-200 max-w-2xl leading-relaxed"
-          >
-            Connect with Javlin for premium facility and hospitality solutions in Qatar. We’re ready to answer your questions and start your project.
-          </motion.p>
+        <div className="container mx-auto px-6 relative z-10 flex flex-col items-center">
+          <div className="max-w-3xl flex flex-col items-center">
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="inline-flex items-center gap-2 bg-javlin-green/20 text-javlin-green-light border border-javlin-green/30 px-5 py-2 rounded-full text-xs font-bold mb-6 tracking-widest uppercase backdrop-blur-sm">
+              Reach Out
+            </motion.div>
+            
+            <motion.h1 
+              initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.1 }}
+              className="text-5xl md:text-7xl font-black text-white mb-6 tracking-tight leading-[1.1]"
+            >
+              Get In <br />
+              <span className="text-javlin-green">Touch With Us.</span>
+            </motion.h1>
+            
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.2 }}
+              className="text-slate-200 text-lg md:text-xl leading-relaxed max-w-2xl"
+            >
+              Connect with Javlin for premium facility and hospitality solutions in Qatar. We’re ready to answer your questions and start your project.
+            </motion.p>
+          </div>
         </div>
       </section>
 
