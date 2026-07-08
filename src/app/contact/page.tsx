@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { MapPin, Phone, Mail, Send, Sparkles } from "lucide-react";
+import { MapPin, Phone, Mail, Send, Sparkles, ShieldCheck } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
@@ -20,17 +20,20 @@ export default function ContactPage() {
   return (
     <div className="flex flex-col w-full min-h-screen bg-slate-50">
       
-      {/* 1. CENTERED IMMERSIVE HERO */}
-      <section className="relative w-full h-[60vh] min-h-[500px] flex items-center justify-center text-center bg-slate-950 pt-20 overflow-hidden">
+      {/* 1. STANDALONE CENTERED HERO SECTION (Updated for Description) */}
+      {/* h-screen to make it standalone 100vh, perfectly centered. pt-20 to space below navbar */}
+      <section className="relative w-full h-screen min-h-[750px] flex items-center justify-center text-center bg-slate-950 pt-20 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image src="https://images.unsplash.com/photo-1596422846543-75c6fc197f07?q=80&w=2070" alt="Contact Javlin" fill className="object-cover opacity-50" priority />
           <div className="absolute inset-0 bg-slate-950/60"></div>
         </div>
         
-        <div className="container mx-auto px-6 relative z-10 flex flex-col items-center">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="inline-flex items-center gap-2 bg-javlin-green/20 text-javlin-green-light border border-javlin-green/30 px-5 py-2 rounded-full text-xs font-bold mb-6 tracking-widest uppercase backdrop-blur-sm">
+        {/* pb-24 md:pb-32 here pushes content UP from the white box below, creating breathing room */}
+        <div className="container mx-auto px-6 relative z-10 flex flex-col items-center text-center pb-24 md:pb-32">
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="inline-flex items-center gap-2 bg-javlin-green/20 text-javlin-green-light border border-javlin-green/30 px-5 py-2 rounded-full text-xs font-bold mb-8 tracking-widest uppercase backdrop-blur-sm">
             <Sparkles className="w-4 h-4" /> Reach Out
           </motion.div>
+          
           <motion.h1 
             initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.1 }}
             className="text-5xl md:text-7xl font-black text-white mb-6 tracking-tight leading-[1.1]"
@@ -38,16 +41,19 @@ export default function ContactPage() {
             Get In <br />
             <span className="text-javlin-green">Touch With Us.</span>
           </motion.h1>
+          
           <motion.p 
-            initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-slate-300 font-bold tracking-widest text-sm uppercase"
+            initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.1 }}
+            className="text-lg md:text-xl text-slate-200 max-w-2xl leading-relaxed"
           >
-            HOME <span className="mx-2 text-white/50">•</span> CONTACT
+            Connect with Javlin for premium facility and hospitality solutions in Qatar. We’re ready to answer your questions and start your project.
           </motion.p>
         </div>
       </section>
 
-      {/* 2. CONTACT BENTO & FORM SECTION */}
+      
+
+      {/* 3. CONTACT BENTO & FORM SECTION (Rest of your beautiful logic is untouched) */}
       <section className="py-24 relative overflow-hidden">
         {/* Subtle background glow */}
         <div className="absolute -left-40 top-40 w-96 h-96 bg-javlin-green/5 rounded-full blur-3xl -z-10"></div>
@@ -196,9 +202,9 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* 3. FULL WIDTH LUSAIL MAP */}
+      {/* 4. FULL WIDTH LUSAIL MAP */}
       <section className="w-full h-[500px] relative bg-slate-200 border-t border-slate-200">
-        {/* Adds a slight gradient at the top of the map to blend it perfectly with the page */}
+        {/* Blending map top with page flow */}
         <div className="absolute top-0 left-0 w-full h-12 bg-gradient-to-b from-slate-50 to-transparent z-10 pointer-events-none"></div>
         <iframe 
           src="https://www.google.com/maps/embed?pb=!1m13!1m8!1m3!1d28836.856379949782!2d51.522732!3d25.384483!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjXCsDIzJzA0LjEiTiA1McKwMzEnMjEuOCJF!5e0!3m2!1sen!2slk!4v1783499204727!5m2!1sen!2slk" 
