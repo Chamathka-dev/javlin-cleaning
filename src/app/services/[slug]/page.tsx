@@ -301,7 +301,7 @@ const serviceDatabase: Record<string, any> = {
   "mattress-cleaning": {
     title: "Mattress Cleaning",
     text: "We spend a third of our lives in bed. Our mattress deep-cleaning service uses high-powered UV vacuums and steam extraction to kill dust mites, remove sweat stains, and sanitize your sleeping environment.",
-    img: "https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?q=80&w=1200",
+    img: "https://images.unsplash.com/photo-1688384452551-5cacc39946e0?q=80&w=1170",
     benefitsTitle: "The health benefits of a clean mattress:",
     benefits: [
       "Improves sleep quality and breathing.",
