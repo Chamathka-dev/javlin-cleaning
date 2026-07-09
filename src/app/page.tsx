@@ -40,7 +40,7 @@ export default function HomePage() {
         
         <div className="container mx-auto px-6 relative z-10 flex flex-col items-center text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="inline-flex items-center gap-2 bg-javlin-green/20 text-javlin-green-light border border-javlin-green/30 px-5 py-2 rounded-full text-xs font-bold mb-8 tracking-widest backdrop-blur-sm">
-            <Sparkles className="w-4 h-4" /> 100% QATARI OWNED ENTERPRISE
+            <Sparkles className="w-4 h-4" /> ELITE CLEANING & HOSPITALITY
           </motion.div>
           
           <motion.h1 initial="hidden" animate="visible" variants={fadeIn} className="text-5xl md:text-7xl lg:text-8xl font-black text-white mb-6 leading-[1.1] tracking-tight">
@@ -58,7 +58,7 @@ export default function HomePage() {
               <ArrowDownCircle className="w-5 h-5 group-hover:translate-y-1 transition-transform" />
             </a>
             <a href="tel:+97431009917" className="group flex items-center gap-2 border border-slate-500 hover:border-white text-white px-8 py-4 rounded-2xl font-bold transition-all bg-white/5 backdrop-blur-sm">
-              <PhoneCall className="w-5 h-5 text-javlin-green" /> +974 3100 9917
+              <PhoneCall className="w-5 h-5 text-javlin-green" /> +974 3327 7657
             </a>
           </motion.div>
         </div>
