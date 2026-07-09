@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { Star, Users, Leaf, CheckCircle2, ArrowRight, ShieldCheck, Clock, ThumbsUp, HeartHandshake } from "lucide-react";
+import { Star, Users, Leaf, CheckCircle2, ArrowRight, ShieldCheck, Clock, ThumbsUp, HeartHandshake, Sparkles } from "lucide-react";
 
 export default function AboutPage() {
   const fadeIn = {
@@ -16,13 +16,13 @@ export default function AboutPage() {
     visible: { opacity: 1, transition: { staggerChildren: 0.15 } },
   };
 
-  // Added slugs to ensure proper routing to individual service pages
+  // Removed Disinfection and added Mattress Cleaning with the updated image URL to maintain the perfect 8-item grid
   const services = [
     { title: "Deep Cleaning", slug: "deep-cleaning", img: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=800", desc: "Cleaning your place on a macro detailed level." },
     { title: "Domestic Cleaning", slug: "domestic-cleaning", img: "https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?q=80&w=800", desc: "Daily, weekly, monthly, and yearly house cleaning." },
     { title: "Commercial Cleaning", slug: "commercial-cleaning", img: "https://images.unsplash.com/photo-1781637590564-01c65dbf2039?q=80&w=1025", desc: "High-level care for client facilities and external façades." },
     { title: "Hospitality", slug: "waiter-and-waitress-service", img: "https://images.unsplash.com/photo-1512061942530-e6a4e9a5cf27?q=80&w=1169", desc: "Providing waiters, cashiers, receptionists, and cleaners." },
-    { title: "Disinfection Service", slug: "sanitization-and-disinfection", img: "https://images.unsplash.com/photo-1584515933487-779824d29309?q=80&w=800", desc: "Complete sanitization destroying 100% of germs and viruses." },
+    { title: "Mattress Cleaning", slug: "mattress-cleaning", img: "https://images.unsplash.com/photo-1688384452551-5cacc39946e0?q=80&w=1170", desc: "Eliminate dust mites and allergens from your bed." },
     { title: "Pest Control", slug: "pest-control", img: "https://images.unsplash.com/photo-1628267138997-2bd92e89aaf7?q=80&w=1202", desc: "Commercial, residential, and industrial pest control services." },
     { title: "Stadium Cleaning", slug: "stadium-cleaning-services", img: "https://images.unsplash.com/photo-1577223625816-7546f13df25d?q=80&w=800", desc: "Pre-match and post-event cleaning for arenas and stadiums." },
     { title: "General Cleaning", slug: "general-cleaning", img: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=800", desc: "Routine sweeping, vacuuming, dusting, and mopping." },
@@ -32,7 +32,8 @@ export default function AboutPage() {
     <div className="flex flex-col w-full min-h-screen bg-slate-50">
       
       {/* 1. CENTERED IMMERSIVE HERO */}
-      <section className="relative w-full h-[60vh] min-h-[500px] flex items-center justify-center text-center bg-slate-950 pt-20 overflow-hidden">
+      {/* Increased pt-20 to pt-32 to push content safely below the fixed navbar */}
+      <section className="relative w-full h-[60vh] min-h-[500px] flex items-center justify-center text-center bg-slate-950 pt-32 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=2070" alt="About Javlin" fill className="object-cover opacity-50" priority />
           <div className="absolute inset-0 bg-slate-950/60"></div>
@@ -40,9 +41,12 @@ export default function AboutPage() {
         
         <div className="container mx-auto px-6 relative z-10 flex flex-col items-center">
           <div className="max-w-3xl flex flex-col items-center">
+            
+            {/* Added Sparkles icon to perfectly match the Services page design */}
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="inline-flex items-center gap-2 bg-javlin-green/20 text-javlin-green-light border border-javlin-green/30 px-5 py-2 rounded-full text-xs font-bold mb-6 tracking-widest uppercase backdrop-blur-sm">
-              Who We Are
+              <Sparkles className="w-4 h-4" /> Who We Are
             </motion.div>
+            
             <motion.h1 
               initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.1 }}
               className="text-5xl md:text-7xl font-black text-white mb-6 tracking-tight leading-[1.1]"

@@ -17,29 +17,31 @@ export default function HomePage() {
     visible: { opacity: 1, transition: { staggerChildren: 0.1 } },
   };
 
+  // Mattress Cleaning added with size: "md" to perfectly fill the final 2 empty slots
   const services = [
     { title: "Deep Cleaning", slug: "deep-cleaning", img: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=800", desc: "Cleaning your place on a macro detailed level.", size: "lg" },
     { title: "Domestic Cleaning", slug: "domestic-cleaning", img: "https://images.unsplash.com/photo-1647381518264-97ff1835026f?q=80&w=1170", desc: "Daily, weekly, monthly, and yearly house cleaning.", size: "sm" },
     { title: "Commercial Cleaning", slug: "commercial-cleaning", img: "https://images.unsplash.com/photo-1781637590564-01c65dbf2039?q=80&w=1025", desc: "High-level care for client facilities and external façades.", size: "sm" },
     { title: "Hospitality", slug: "waiter-and-waitress-service", img: "https://images.unsplash.com/photo-1512061942530-e6a4e9a5cf27?q=80&w=1169", desc: "Providing waiters, cashiers, receptionists, and cleaners.", size: "md" },
-    { title: "Disinfection Service", slug: "sanitization-and-disinfection", img: "https://images.unsplash.com/photo-1584515933487-779824d29309?q=80&w=800", desc: "Complete sanitization destroying 100% of germs.", size: "sm" },
     { title: "Pest Control", slug: "pest-control", img: "https://images.unsplash.com/photo-1628267138997-2bd92e89aaf7?q=80&w=1202", desc: "Commercial, residential, and industrial pest control.", size: "sm" },
-    { title: "Stadium Cleaning", slug: "stadium-cleaning-services", img: "https://images.unsplash.com/photo-1577223625816-7546f13df25d?q=80&w=800", desc: "Pre-match and post-event cleaning for large arenas.", size: "md" },
+    { title: "Sofa Cleaning", slug: "sofa-cleaning", img: "https://images.unsplash.com/photo-1512212621149-107ffe572d2f?q=80&w=800", desc: "Deep extraction cleaning for fabric and leather sofas.", size: "sm" },
+    { title: "Mattress Cleaning", slug: "mattress-cleaning", img: "https://images.unsplash.com/photo-1688384452551-5cacc39946e0?q=80&w=1170", desc: "Eliminate dust mites and allergens from your bed.", size: "md" },
   ];
 
   return (
     <div className="flex flex-col w-full min-h-screen bg-slate-50">
       
       {/* 1. STANDALONE CENTERED HERO SECTION */}
-      {/* Removed unbalanced padding/margins. Using 'h-screen' and 'pt-20' to perfectly center below the navbar */}
-      <section className="relative w-full h-screen flex items-center justify-center overflow-hidden bg-slate-950 pt-20">
+      {/* Changed pt-20 to pt-32 to push content safely below the fixed navbar */}
+      <section className="relative w-full h-screen min-h-[750px] flex items-center justify-center overflow-hidden bg-slate-950 pt-32">
         <div className="absolute inset-0 z-0">
           <Image src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=2070" alt="Premium Cleaning" fill className="object-cover opacity-50" priority />
           <div className="absolute inset-0 bg-slate-950/60"></div>
         </div>
         
+        {/* Removed the bottom padding (pb-24/32) that was pushing the text upwards */}
         <div className="container mx-auto px-6 relative z-10 flex flex-col items-center text-center">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="inline-flex items-center gap-2 bg-javlin-green/20 text-javlin-green-light border border-javlin-green/30 px-5 py-2 rounded-full text-xs font-bold mb-8 tracking-widest backdrop-blur-sm">
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="inline-flex items-center gap-2 bg-javlin-green/20 text-javlin-green-light border border-javlin-green/30 px-5 py-2 rounded-full text-xs font-bold mb-8 tracking-widest uppercase backdrop-blur-sm">
             <Sparkles className="w-4 h-4" /> ELITE CLEANING & HOSPITALITY
           </motion.div>
           
@@ -64,8 +66,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 2. STATS BAR (MOVED INTO NORMAL FLOW) */}
-      {/* Removed the negative margin (-mt-12) so it no longer creeps into the hero section */}
+      {/* 2. STATS BAR */}
       <section className="py-16 bg-slate-50 border-b border-slate-200">
         <div className="container mx-auto px-6 max-w-6xl">
           <div className="bg-white rounded-3xl shadow-xl border border-slate-100 p-8">
@@ -131,7 +132,7 @@ export default function HomePage() {
               <p className="text-slate-400 max-w-xl text-lg">We handle tasks of all scopes with dynamic resource management and rigorous quality control.</p>
             </div>
             <Link href="/services" className="inline-flex items-center gap-2 bg-javlin-blue hover:bg-javlin-blue-dark text-white font-bold px-8 py-4 rounded-xl shadow-lg transition-all">
-              Explore All 26 Services <ArrowRight className="w-5 h-5" />
+              Explore All 25 Services <ArrowRight className="w-5 h-5" />
             </Link>
           </motion.div>
 
@@ -139,11 +140,11 @@ export default function HomePage() {
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 auto-rows-[250px] gap-4 max-w-7xl mx-auto">
             {services.map((service, index) => {
               let gridClasses = "col-span-1 row-span-1";
-              if (service.size === "lg") gridClasses = "col-span-1 lg:col-span-2 lg:row-span-2";
-              if (service.size === "md") gridClasses = "col-span-1 lg:col-span-2 row-span-1";
+              if (service.size === "lg") gridClasses = "col-span-1 md:col-span-2 lg:row-span-2";
+              if (service.size === "md") gridClasses = "col-span-1 md:col-span-2 row-span-1";
 
               return (
-                <Link href={`/services/${service.slug}`} key={index} className={`bg-slate-800 rounded-3xl overflow-hidden shadow-2xl group relative flex flex-col justify-end p-8 ${gridClasses} ${index >= 4 ? 'hidden md:flex' : 'flex'} cursor-pointer`}>
+                <Link href={`/services/${service.slug}`} key={index} className={`bg-slate-800 rounded-3xl overflow-hidden shadow-2xl group relative flex flex-col justify-end p-8 ${gridClasses} cursor-pointer`}>
                   
                   <div className="absolute inset-0 z-0">
                     <Image src={service.img} alt={service.title} fill className="object-cover group-hover:scale-105 transition-transform duration-700 opacity-90 group-hover:opacity-100" />

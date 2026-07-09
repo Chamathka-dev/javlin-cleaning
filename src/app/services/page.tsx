@@ -10,32 +10,27 @@ export default function ServicesHubPage() {
   const fadeIn = { hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5 } } };
   const staggerContainer = { hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.05 } } };
 
-  // Core Services (Will be displayed as larger featured cards)
+  // Core Services (Added Sofa & Mattress Cleaning)
   const coreServices = [
     { title: "Deep Cleaning", slug: "deep-cleaning", img: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=800", desc: "Cleaning your place on a macro detailed level." },
     { title: "Commercial Cleaning", slug: "commercial-cleaning", img: "https://images.unsplash.com/photo-1781637590564-01c65dbf2039?q=80&w=1025", desc: "High-level care for client facilities and external façades." },
     { title: "Domestic Cleaning", slug: "domestic-cleaning", img: "https://images.unsplash.com/photo-1647381518264-97ff1835026f?q=80&w=1170", desc: "Daily, weekly, monthly, and yearly house cleaning." },
     { title: "General Cleaning", slug: "general-cleaning", img: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=800", desc: "Routine sweeping, vacuuming, dusting, and mopping." },
+    { title: "Sofa Cleaning", slug: "sofa-cleaning", img: "https://images.unsplash.com/photo-1512212621149-107ffe572d2f?q=80&w=800", desc: "Deep extraction cleaning for sofas and upholstery." },
+    
+    // Updated Image Link Below:
+    { title: "Mattress Cleaning", slug: "mattress-cleaning", img: "https://images.unsplash.com/photo-1688384452551-5cacc39946e0?q=80&w=1170", desc: "Eliminate dust mites and allergens from your bed." },
   ];
 
-  // Specialized Services (Displayed in a sleeker, tighter grid)
+  // Specialized Services (Removed Sanitization & Disinfection)
   const specializedServices = [
     { title: "Stadium Cleaning", slug: "stadium-cleaning-services", img: "https://images.unsplash.com/photo-1577223625816-7546f13df25d?q=80&w=800", desc: "Pre-match and post-event cleaning for arenas." },
     { title: "Solar Panel Cleaning", slug: "solar-panel-cleaning", img: "https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?q=80&w=800", desc: "Maximize your solar energy efficiency." },
-    { title: "Sanitization & Disinfection", slug: "sanitization-and-disinfection", img: "https://images.unsplash.com/photo-1584515933487-779824d29309?q=80&w=800", desc: "Complete sanitization destroying 100% of germs." },
     { title: "Pest Control", slug: "pest-control", img: "https://images.unsplash.com/photo-1628267138997-2bd92e89aaf7?q=80&w=1202", desc: "Commercial, residential, and industrial pest control." },
     { title: "Pool Cleaning", slug: "pool-cleaning", img: "https://images.unsplash.com/photo-1774109556498-652c0458d4af?q=80&w=687", desc: "Keep your swimming pools crystal clear." },
     { title: "Post Construction", slug: "post-construction-cleaning", img: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=800", desc: "Removing dust and debris after renovation." },
     { title: "Floor Polishing", slug: "floor-cleaning-and-polishing", img: "https://images.unsplash.com/photo-1580256081112-e49377338b7f?q=80&w=800", desc: "Restore shine to wood, tile, and marble." },
     { title: "Carpet & Rugs", slug: "carpet-and-rugs-cleaning", img: "https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?q=80&w=1074", desc: "Professional stain removal and refreshment." },
-  ];
-
-  // Hospitality & Staffing
-  const staffingServices = [
-    { title: "Hospitality Services", slug: "waiter-and-waitress-service", img: "https://images.unsplash.com/photo-1512061942530-e6a4e9a5cf27?q=80&w=1169", desc: "Providing elite event staff and waiters." },
-    { title: "Maids", slug: "maids", img: "https://images.unsplash.com/photo-1722962674305-fc3dbac2fcb2?q=80&w=1170", desc: "Experienced and vetted maids for your home." },
-    { title: "Office Boy", slug: "office-boy", img: "https://images.unsplash.com/photo-1627905646269-7f034dcc5738?q=80&w=1170", desc: "Reliable office boys for corporate assistance." },
-    { title: "School Bus Assistants", slug: "school-bus-assistants", img: "https://images.unsplash.com/photo-1617756218933-943423e097b1?q=80&w=1170", desc: "Caring assistants for student transport." },
   ];
 
   // Sector Specific
@@ -46,14 +41,20 @@ export default function ServicesHubPage() {
     { title: "Resto/Café", slug: "resto-cafe", img: "https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=800", desc: "Specialized deep cleaning for restaurants." },
   ];
 
-  // Specific Deep Cleans
+  // Hospitality & Staffing
+  const staffingServices = [
+    { title: "Hospitality Services", slug: "waiter-and-waitress-service", img: "https://images.unsplash.com/photo-1512061942530-e6a4e9a5cf27?q=80&w=1169", desc: "Providing elite event staff and waiters." },
+    { title: "Maids", slug: "maids", img: "https://images.unsplash.com/photo-1722962674305-fc3dbac2fcb2?q=80&w=1170", desc: "Experienced and vetted maids for your home." },
+    { title: "Office Boy", slug: "office-boy", img: "https://images.unsplash.com/photo-1627905646269-7f034dcc5738?q=80&w=1170", desc: "Reliable office boys for corporate assistance." },
+    { title: "School Bus Assistants", slug: "school-bus-assistants", img: "https://images.unsplash.com/photo-1617756218933-943423e097b1?q=80&w=1170", desc: "Caring assistants for student transport." },
+  ];
+
+  // Specific Deep Cleans (Sofa & Mattress removed and bumped to Core)
   const deepCleanServices = [
     { title: "Soft Services", slug: "soft-services", img: "https://images.unsplash.com/photo-1687840936382-7333b7d26fca?q=80&w=687", desc: "Comprehensive soft facility management." },
     { title: "Move-In and Out", slug: "move-in-and-out-cleaning", img: "https://images.unsplash.com/photo-1698917414969-feade59e3343?q=80&w=1172", desc: "Deep cleaning for smooth transitions." },
     { title: "Party or Event", slug: "party-or-event-cleaning", img: "https://images.unsplash.com/photo-1661697522363-24ad7adc2bc5?q=80&w=687", desc: "Pre and post-event cleaning services." },
-    { title: "Sofa Cleaning", slug: "sofa-cleaning", img: "https://images.unsplash.com/photo-1512212621149-107ffe572d2f?q=80&w=800", desc: "Deep extraction cleaning for sofas." },
     { title: "Curtain Cleaning", slug: "curtain-cleaning", img: "https://images.unsplash.com/photo-1519710164239-da123dc03ef4?q=80&w=800", desc: "Steam cleaning and dust removal." },
-    { title: "Mattress Cleaning", slug: "mattress-cleaning", img: "https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?q=80&w=800", desc: "Eliminate dust mites and allergens." },
   ];
 
   return (
@@ -143,7 +144,7 @@ export default function ServicesHubPage() {
         </div>
       </section>
 
-      {/* 4. HOSPITALITY & SPECIFIC CLEANS (NOW BRIGHTENED!) */}
+      {/* 4. HOSPITALITY & SPECIFIC CLEANS */}
       <section className="py-24 bg-white text-slate-900 border-t border-slate-100">
         <div className="container mx-auto px-6 max-w-7xl">
           <div className="mb-12">
@@ -151,16 +152,13 @@ export default function ServicesHubPage() {
             <div className="w-12 h-1 bg-javlin-green rounded-full mt-4"></div>
           </div>
 
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+          {/* Adjusted to lg:grid-cols-4 to perfectly balance the 8 items in this array */}
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[...staffingServices, ...deepCleanServices].map((service, idx) => (
               <Link href={`/services/${service.slug}`} key={idx} className="block">
-                {/* Changed styling to be bright and light with full-opacity images */}
                 <motion.div variants={fadeIn} className="relative aspect-square md:aspect-[4/5] overflow-hidden rounded-[24px] bg-slate-100 group cursor-pointer shadow-sm hover:shadow-xl transition-all border border-slate-200 hover:border-javlin-green/50">
                   
-                  {/* Images are now fully bright! */}
                   <Image src={service.img} alt={service.title} fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
-                  
-                  {/* Subtle gradient only at the very bottom so white text stays readable */}
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
                   
                   <div className="absolute bottom-0 left-0 w-full p-6 text-left">

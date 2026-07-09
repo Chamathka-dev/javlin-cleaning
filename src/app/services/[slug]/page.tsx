@@ -93,18 +93,7 @@ const serviceDatabase: Record<string, any> = {
       "Pantry and mailroom management."
     ]
   },
-  "sanitization-and-disinfection": {
-    title: "Sanitization & Disinfection",
-    text: "In today's world, hygiene is paramount. We utilize advanced electrostatic sprayers and hospital-grade disinfectants to eliminate 99.9% of harmful bacteria, viruses, and pathogens from your environment.",
-    img: "https://images.unsplash.com/photo-1584515933487-779824d29309?q=80&w=1200",
-    benefitsTitle: "The importance of disinfection:",
-    benefits: [
-      "Provides peace of mind for staff and visitors.",
-      "Highly effective against airborne and surface viruses.",
-      "Non-toxic and safe for food-preparation areas.",
-      "Rapid application with minimal downtime."
-    ]
-  },
+  
   "maids": {
     title: "Maids",
     text: "Finding reliable help shouldn't be stressful. We provide highly trained, vetted, and trustworthy maids who integrate seamlessly into your household to manage all daily cleaning and organizing tasks.",

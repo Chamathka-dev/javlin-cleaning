@@ -41,7 +41,6 @@ export default function Navbar() {
                     <Link href="/services/stadium-cleaning-services" className="text-sm text-slate-600 hover:text-javlin-blue hover:translate-x-1 transition-all flex items-center gap-1"><ChevronRight className="w-3 h-3"/> Stadium Cleaning Services</Link>
                     <Link href="/services/solar-panel-cleaning" className="text-sm text-slate-600 hover:text-javlin-blue hover:translate-x-1 transition-all flex items-center gap-1"><ChevronRight className="w-3 h-3"/> Solar Panel Cleaning</Link>
                     <Link href="/services/soft-services" className="text-sm text-slate-600 hover:text-javlin-blue hover:translate-x-1 transition-all flex items-center gap-1"><ChevronRight className="w-3 h-3"/> Soft Services</Link>
-                    <Link href="/services/sanitization-and-disinfection" className="text-sm text-slate-600 hover:text-javlin-blue hover:translate-x-1 transition-all flex items-center gap-1"><ChevronRight className="w-3 h-3"/> Sanitization and Disinfection</Link>
                     <Link href="/services/maids" className="text-sm text-slate-600 hover:text-javlin-blue hover:translate-x-1 transition-all flex items-center gap-1"><ChevronRight className="w-3 h-3"/> Maids</Link>
                   </div>
 
