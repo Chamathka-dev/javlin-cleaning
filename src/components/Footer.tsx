@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { FaFacebook, FaTwitter, FaLinkedin, FaInstagram } from "react-icons/fa"; 
+import { FaFacebook, FaInstagram, FaTiktok } from "react-icons/fa"; 
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -14,10 +14,11 @@ export default function Footer() {
           <div className="space-y-6">
             <div className="flex items-center gap-3">
               <Image 
-                src="/logo.png" // Ensure you place logo.png in the public folder
+                src="/logo.png" 
                 alt="Javlin Cleaning Services Logo" 
                 width={150}
                 height={150}
+                className="object-contain"
               />
             </div>
             <div>
@@ -25,17 +26,14 @@ export default function Footer() {
               <p className="text-sm font-medium text-slate-400 font-sans" dir="rtl">جافلين للتنظيفات والخدمات ذ.م.م</p>
             </div>
             <div className="flex gap-4">
-              <a href="#" className="w-10 h-10 rounded-full border border-slate-700 flex items-center justify-center hover:bg-javlin-blue hover:border-javlin-blue transition-colors">
+              <a href="https://www.facebook.com/javlin.qa/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-slate-700 flex items-center justify-center hover:bg-javlin-blue hover:border-javlin-blue transition-colors">
                 <FaFacebook className="w-4 h-4" />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full border border-slate-700 flex items-center justify-center hover:bg-javlin-blue hover:border-javlin-blue transition-colors">
-                <FaTwitter className="w-4 h-4" />
-              </a>
-              <a href="#" className="w-10 h-10 rounded-full border border-slate-700 flex items-center justify-center hover:bg-javlin-blue hover:border-javlin-blue transition-colors">
-                <FaLinkedin className="w-4 h-4" />
-              </a>
-              <a href="#" className="w-10 h-10 rounded-full border border-slate-700 flex items-center justify-center hover:bg-javlin-blue hover:border-javlin-blue transition-colors">
+              <a href="https://www.instagram.com/javlincleaning?igsh=eHNiYnZ4enN3c2Jp" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-slate-700 flex items-center justify-center hover:bg-javlin-blue hover:border-javlin-blue transition-colors">
                 <FaInstagram className="w-4 h-4" />
+              </a>
+              <a href="https://vt.tiktok.com/ZSX8jVDoa/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-slate-700 flex items-center justify-center hover:bg-javlin-blue hover:border-javlin-blue transition-colors">
+                <FaTiktok className="w-4 h-4" />
               </a>
             </div>
           </div>
@@ -57,7 +55,8 @@ export default function Footer() {
             <ul className="space-y-4 text-sm">
               <li><Link href="/services/soft-services" className="hover:text-javlin-blue transition-colors">Soft Services</Link></li>
               <li><Link href="/services/maids" className="hover:text-javlin-blue transition-colors">Maids</Link></li>
-              <li><Link href="/services/sanitization-and-disinfection" className="hover:text-javlin-blue transition-colors">Disinfection Service</Link></li>
+              {/* Replaced Disinfection with Mattress Cleaning */}
+              <li><Link href="/services/mattress-cleaning" className="hover:text-javlin-blue transition-colors">Mattress Cleaning</Link></li>
               <li><Link href="/services/pest-control" className="hover:text-javlin-blue transition-colors">Pest Control</Link></li>
             </ul>
           </div>

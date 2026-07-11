@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { MapPin, Phone, Mail, Send, Sparkles, ShieldCheck } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
-import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
+import { FaFacebook, FaInstagram, FaTiktok } from "react-icons/fa"; // Updated to include FaTiktok
 
 export default function ContactPage() {
   const fadeIn = {
@@ -53,7 +53,7 @@ export default function ContactPage() {
 
       
 
-      {/* 3. CONTACT BENTO & FORM SECTION (Rest of your beautiful logic is untouched) */}
+      {/* 3. CONTACT BENTO & FORM SECTION */}
       <section className="py-24 relative overflow-hidden">
         {/* Subtle background glow */}
         <div className="absolute -left-40 top-40 w-96 h-96 bg-javlin-green/5 rounded-full blur-3xl -z-10"></div>
@@ -116,14 +116,14 @@ export default function ContactPage() {
 
               {/* Social Icons at bottom of card */}
               <div className="relative z-10 flex gap-4 pt-12 mt-8 border-t border-white/10">
-                <a href="#" className="w-12 h-12 rounded-full bg-white/5 border border-white/10 text-white flex items-center justify-center hover:bg-javlin-green hover:border-javlin-green hover:-translate-y-1 transition-all">
+                <a href="https://www.facebook.com/javlin.qa/" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-white/5 border border-white/10 text-white flex items-center justify-center hover:bg-javlin-green hover:border-javlin-green hover:-translate-y-1 transition-all">
                   <FaFacebook className="w-5 h-5" />
                 </a>
-                <a href="#" className="w-12 h-12 rounded-full bg-white/5 border border-white/10 text-white flex items-center justify-center hover:bg-javlin-green hover:border-javlin-green hover:-translate-y-1 transition-all">
+                <a href="https://www.instagram.com/javlincleaning?igsh=eHNiYnZ4enN3c2Jp" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-white/5 border border-white/10 text-white flex items-center justify-center hover:bg-javlin-green hover:border-javlin-green hover:-translate-y-1 transition-all">
                   <FaInstagram className="w-5 h-5" />
                 </a>
-                <a href="#" className="w-12 h-12 rounded-full bg-white/5 border border-white/10 text-white flex items-center justify-center hover:bg-javlin-green hover:border-javlin-green hover:-translate-y-1 transition-all">
-                  <FaTwitter className="w-5 h-5" />
+                <a href="https://vt.tiktok.com/ZSX8jVDoa/" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-white/5 border border-white/10 text-white flex items-center justify-center hover:bg-javlin-green hover:border-javlin-green hover:-translate-y-1 transition-all">
+                  <FaTiktok className="w-5 h-5" />
                 </a>
               </div>
             </motion.div>

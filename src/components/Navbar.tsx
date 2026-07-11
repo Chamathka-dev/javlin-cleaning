@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Menu, X, Search, ChevronRight } from "lucide-react";
-import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
+import { FaFacebook, FaInstagram, FaTiktok } from "react-icons/fa";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,7 +18,9 @@ export default function Navbar() {
             <Image src="/logo.png" alt="Javlin Logo" width={160} height={100} priority className="object-contain w-auto h-16 md:h-24" />
           </Link>
 
+          {/* DESKTOP MENU WRAPPER */}
           <div className="hidden lg:flex items-center space-x-8">
+            
             <div className="flex space-x-8 items-center">
               <Link href="/" className="text-sm font-bold text-slate-700 hover:text-javlin-blue transition-colors">HOME</Link>
               <Link href="/about" className="text-sm font-bold text-slate-700 hover:text-javlin-blue transition-colors">ABOUT US</Link>
@@ -75,12 +77,22 @@ export default function Navbar() {
             </div>
 
             <div className="flex items-center space-x-4 border-l border-slate-200 pl-6 text-slate-600">
-              <FaFacebook className="w-4 h-4 hover:text-javlin-blue cursor-pointer transition-colors" />
-              <FaInstagram className="w-4 h-4 hover:text-javlin-blue cursor-pointer transition-colors" />
-              <FaTwitter className="w-4 h-4 hover:text-javlin-blue cursor-pointer transition-colors" />
+              <a href="https://www.facebook.com/javlin.qa/" target="_blank" rel="noopener noreferrer" className="hover:text-javlin-blue transition-colors">
+                <FaFacebook className="w-4 h-4 cursor-pointer" />
+              </a>
+              
+              <a href="https://www.instagram.com/javlincleaning?igsh=eHNiYnZ4enN3c2Jp" target="_blank" rel="noopener noreferrer" className="hover:text-javlin-blue transition-colors">
+                <FaInstagram className="w-4 h-4 cursor-pointer" />
+              </a>
+              
+              <a href="https://vt.tiktok.com/ZSX8jVDoa/" target="_blank" rel="noopener noreferrer" className="hover:text-javlin-blue transition-colors">
+                <FaTiktok className="w-4 h-4 cursor-pointer" />
+              </a>
+              
               <Search className="w-4 h-4 ml-2 hover:text-javlin-blue cursor-pointer transition-colors" />
             </div>
-          </div>
+
+          </div> {/* <-- THIS CLOSING DIV WAS MISSING IN YOUR CODE */}
 
           <button className="lg:hidden text-slate-700 hover:text-javlin-blue" onClick={() => setIsOpen(!isOpen)}>
             {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
