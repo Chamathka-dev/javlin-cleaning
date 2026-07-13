@@ -82,7 +82,7 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <h4 className="text-sm font-bold text-slate-400 uppercase tracking-wider mb-1">Address</h4>
-                      <p className="text-xl font-bold text-white">Lusail, Qatar</p>
+                      <p className="text-xl font-bold text-white">Al-Rayyan, Qatar</p>
                     </div>
                   </div>
 
