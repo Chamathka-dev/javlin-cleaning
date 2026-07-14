@@ -58,8 +58,7 @@ export default function AboutPage() {
               initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.2 }}
               className="text-slate-200 text-lg md:text-xl leading-relaxed max-w-2xl"
             >
-              We are a fully Qatari-owned enterprise dedicated to engineering clean, secure, and luxurious spaces for commercial, industrial, and domestic clients.
-            </motion.p>
+We are a premier enterprise dedicated to engineering clean, secure, and luxurious spaces for commercial, industrial, and domestic clients.            </motion.p>
           </div>
         </div>
       </section>
@@ -84,7 +83,7 @@ export default function AboutPage() {
               <div className="w-16 h-1.5 bg-javlin-green rounded-full mb-8"></div>
               
               <p className="text-slate-600 text-lg leading-relaxed mb-6 font-medium">
-                Javlin Cleaning And Services is a fully proudly Qatari-owned company. 
+                We are an industry-leading enterprise that has been providing top-notch cleaning and hospitality services for years.
               </p>
               <p className="text-slate-500 text-lg leading-relaxed mb-8">
                 The founders of Javlin have been helping a vast range of company owners and operators with all of their industrial cleaning and hospitality requirements. Whether you are a large or small business searching for frequent or regular cleaning and hospitality services, our team can help with tasks of all sizes and scopes. We are professionals in all fields and have been providing clean, secure, and stable workplaces across the state.
